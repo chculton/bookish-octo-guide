@@ -12,7 +12,6 @@
 
 			<nav class="nav-link-area">
 				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/projects">Projects</RouterLink>
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div>

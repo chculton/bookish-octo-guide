@@ -1,14 +1,28 @@
+<script setup lang="ts">
+	import Card from '../components/Card.vue';
+</script>
+
 <template>
 	<main>
 		<div>
-			<h1>Alaska-based software and game development</h1>
+			<h2>Alaska-based software and game development</h2>
 		</div>
 
-		<div>
-			<h2>Contact Us</h2>
-
-			We're still working on the site, though please feel free to reach out to
-			us through the About page at any time.
-		</div>
+		<Card>
+			<template #picture>
+				<img src="/TFSCItchioStorefront1.png" />
+			</template>
+			<template #title><h3>Itch.io Storefront</h3></template>
+			<template #card-content
+				>We have not released any games yet, though we will be talking about
+				upcoming project on this site shortly!</template
+			>
+		</Card>
 	</main>
 </template>
+
+<style>
+	div {
+		margin-bottom: 1rem;
+	}
+</style>

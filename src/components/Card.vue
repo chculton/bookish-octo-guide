@@ -1,14 +1,5 @@
-<script setup lang="ts">
-	function handleCardClick() {
-		window.open('https://tundrafeedandsupplyco.itch.io/');
-	}
-</script>
-
 <template>
-	<div
-		class="card"
-		@click="handleCardClick"
-	>
+	<div class="card">
 		<div>
 			<slot name="picture"></slot>
 		</div>
@@ -33,6 +24,7 @@
 		flex-direction: row;
 		height: 10rem;
 		cursor: pointer;
+		background: #101010;
 	}
 
 	.card:hover {
@@ -49,6 +41,7 @@
 	img {
 		border-radius: 5px 0 0 5px;
 		width: 10rem;
+		height: 10rem;
 	}
 
 	@media (max-width: 600px) {

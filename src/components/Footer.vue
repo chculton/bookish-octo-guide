@@ -1,6 +1,6 @@
 <template>
 	<div class="footer">
-		Copyright &copy 2023 Tundra Feed and Supply Company LLC
+		Copyright &copy 2022 - present Tundra Feed and Supply Company LLC
 	</div>
 </template>
 

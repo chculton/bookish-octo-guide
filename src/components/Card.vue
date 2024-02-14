@@ -1,6 +1,6 @@
 <template>
 	<div class="card">
-		<div>
+		<div class="card-picture">
 			<slot name="picture"></slot>
 		</div>
 
@@ -22,9 +22,10 @@
 		transition: 0.3s;
 		display: flex;
 		flex-direction: row;
-		height: 10rem;
+		min-height: 10rem;
 		cursor: pointer;
 		background: #101010;
+		margin-bottom: 1rem;
 	}
 
 	.card:hover {
@@ -48,6 +49,13 @@
 		.card {
 			height: auto;
 			min-height: 10rem;
+		}
+
+		.card-picture img {
+			visibility: hidden;
+			border-radius: 0;
+			width: 0rem;
+			height: 0rem;
 		}
 	}
 </style>

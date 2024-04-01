@@ -1,36 +1,9 @@
 <script setup lang="ts">
-	import { onMounted } from 'vue';
 	import Card from '../components/Card.vue';
 
 	function handleCardClick(linkToGoTo: string) {
 		window.open(linkToGoTo);
 	}
-
-	function displayLatestVideo() {
-		const cid = 'UC2M7T8BMvOAltQmLRaCphDg';
-		const channelURL = encodeURIComponent(
-			`https://www.youtube.com/feeds/videos.xml?channel_id=${cid}`
-		);
-
-		const frame = document.getElementById('channel') as HTMLIFrameElement;
-
-		fetch(`https://api.rss2json.com/v1/api.json?rss_url=${channelURL}`)
-			.then((response) => response.json())
-			.then((data) => {
-				var guid = data['items'][0]['guid'];
-				const embedURL =
-					'https://youtube.com/embed/' + guid.replace('yt:video:', '');
-
-				frame.src = embedURL;
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
-
-	onMounted(() => {
-		displayLatestVideo();
-	});
 </script>
 
 <template>
@@ -39,16 +12,29 @@
 			<h2>Alaska based software and game development</h2>
 		</div>
 
-		<div class="channel-frame">
+		<div class="frame">
 			<iframe
-				id="channel"
 				width="560"
 				height="315"
+				src="https://www.youtube.com/embed/um0zp7zBbt4?si=5VPa3FeA77Ccg0ge"
 				title="Tundra Feed and Supply Co Channel"
 				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
 				allowfullscreen
 			></iframe>
+		</div>
+
+		<div class="frame">
+			<iframe
+				frameborder="0"
+				src="https://itch.io/embed/2614907?border_width=0&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=98fa5b&amp;border_color=bebebe"
+				width="560"
+				height="165"
+				><a href="https://tundrafeedandsupplyco.itch.io/moonwalk-resurgence"
+					>Moonwalk: Resurgence by Tundra Feed and Supply Company</a
+				></iframe
+			>
 		</div>
 
 		<Card
@@ -69,20 +55,6 @@
 				anytime through our "About" page.
 			</template>
 		</Card>
-
-		<Card @click="handleCardClick('https://tundrafeedandsupplyco.itch.io/')">
-			<template #picture>
-				<img
-					src="/TFSCItchioStorefront1.png"
-					class="card-picture"
-				/>
-			</template>
-			<template #title><h3>Itch.io Storefront</h3></template>
-			<template #card-content
-				>We have not released any games yet, though we will be talking about our
-				upcoming projects on this site shortly!</template
-			>
-		</Card>
 	</main>
 </template>
 
@@ -91,7 +63,7 @@
 		margin-bottom: 1rem;
 	}
 
-	.channel-frame {
+	.frame {
 		display: flex;
 		justify-content: center;
 		margin-bottom: 1rem;
